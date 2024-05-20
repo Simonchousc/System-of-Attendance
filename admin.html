@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <h2>管理员页面</h2>
+        <div class="nav-bar">
+            <button onclick="showSection('userManagement')">用户管理</button>
+            <button onclick="showSection('attendanceRecords')">考勤记录管理</button>
+            <button onclick="showSection('registerNewUser')">注册新用户</button>
+        </div>
+
+        <!-- 用户管理 -->
+        <div class="section" id="userManagement">
+            <h3>用户管理</h3>
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>IC卡号</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>真实姓名</th>
+                        <th>性别</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <!-- 用户列表将插入在这里 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 考勤记录管理 -->
+        <div class="section" id="attendanceRecords">
+            <h3>考勤记录管理</h3>
+
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>IC卡号</th>
+                        <th>真实姓名</th>
+                        <th>时间</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                    <!-- 查询结果将插入在这里 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 注册新用户 -->
+        <div class="section" id="registerNewUser">
+            <h3>注册新用户</h3>
+            <div>
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+                <input type="text" id="realName" placeholder="真实姓名">
+                <input type="text" id="gender" placeholder="性别">
+                <input type="text" id="icCard" placeholder="IC卡号" readonly title="卡号自动获取">
+                <button onclick="registerUser()">注册</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

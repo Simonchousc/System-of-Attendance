@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            
+            background: url('https://source.unsplash.com/featured/?technology') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .captcha-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .captcha-container canvas {
+            margin-left: 10px;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .login-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 20px);
+            margin-top: 10px;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>登录</h2>
+        <form id="loginForm">
+            <select id="loginType">
+                <option value="user">用户</option>
+                <option value="admin">管理员</option>
+            </select>
+            <input id="usr" type="text" placeholder="用户名" required>
+            <input id="pwd" type="password" placeholder="密码" required>
+            <div class="captcha-container">
+                <input type="text" class="captcha" id="captcha_id" placeholder="验证码" required>
+                <canvas id="captchaCanvas" width="100" height="40" onclick="generateCaptcha()"></canvas>
+            </div>
+            <button type="button" onclick="login_in()">登录</button>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>

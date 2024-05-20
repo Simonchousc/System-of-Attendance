@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/featured/?workspace') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .admin-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 80%;
+            /* 调整宽度 */
+            max-width: 800px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .nav-bar button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .nav-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <h2>用户页面</h2>
+        <div class="nav-bar">
+            <button onclick="showSection('attendanceRecords')">考勤记录</button>
+            <button onclick="showSection('editProfile')">修改信息</button>
+        </div>
+
+        <!-- 考勤记录 -->
+        <div class="section active" id="attendanceRecords">
+            <h3>考勤记录</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>IC卡号</th>
+                        <th>真实姓名</th>
+                        <th>时间</th>
+                    </tr>
+                </thead>
+                <tbody id="recordsTableBody">
+                    <!-- 考勤记录将插入在这里 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 修改信息 -->
+        <div class="section" id="editProfile">
+            <h3>修改信息</h3>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" placeholder="用户名">
+            <label for="password">密码:</label>
+            <input type="password" id="password" placeholder="密码">
+            <label for="realName">真实姓名:</label>
+            <input type="text" id="realName" placeholder="真实姓名" readonly title="此项信息不能修改">
+            <label for="gender">性别:</label>
+            <input type="text" id="gender" placeholder="性别" readonly title="此项信息不能修改">
+            <label for="icCard">IC卡号:</label>
+            <input type="text" id="icCard" placeholder="IC卡号" readonly title="此项信息不能修改">
+            <button onclick="updateProfile()">更新信息</button>
+        </div>
+    </div>
+
+    <script src="user.js">
+
+    </script>
+</body>
+
+</html>
